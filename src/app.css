@@ -1,3 +1,19 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
-@import 'tailwindcss/utilities'
+@import 'tailwindcss/utilities';
+
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+:root {
+	--color1: #0277ff;
+	--color2: #f2d602;
+	--color3: #1bedca;
+	--color4: #dd7dff;
+	--color5: #fe295a;
+	--color6: #0348ee;
+	--color7: #f273b7;
+
+	font-family: 'Russo One', serif;
+	font-weight: 400;
+	font-style: normal;
+}
