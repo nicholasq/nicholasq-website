@@ -14,6 +14,9 @@ export default {
         senary: "var(--color6)",
         septenary: "var(--color7)",
       },
+      fontFamily: {
+        "ezread": ["Space Grotesk"],
+      },
     },
   },
 

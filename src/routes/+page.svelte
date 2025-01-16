@@ -1,14 +1,17 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import Card from '$lib/ui/components/Card.svelte';
+	import BlogPreviewCard from '$lib/ui/components/BlogPreviewCard.svelte';
 	import Chip from '$lib/ui/components/Chip.svelte';
 	import Terminal from '$lib/ui/components/Terminal.svelte';
 	import type { PageData } from './$types';
+	import { bgColors } from '$lib/util';
 
 	const { data }: { data: PageData } = $props();
 
 	const prompt = '$ ';
 	const terminalContent = [data.welcomeMessage, data.experience];
+
 	let displayedCommand = $state(prompt);
 	let messageIndex = $state(0);
 	let charIndex = $state(0);
@@ -23,6 +26,7 @@
 		}
 
 		const currentMessage = terminalContent[messageIndex];
+
 		if (charIndex < currentMessage.length) {
 			displayedCommand += currentMessage[charIndex];
 			charIndex++;
@@ -40,7 +44,7 @@
 	});
 </script>
 
-<div class="m-auto flex w-full flex-col gap-8 p-2 lg:w-[1200px] lg:p-0">
+<div class="m-auto flex w-full flex-col items-center gap-8 p-2 lg:w-[1200px] lg:p-0">
 	<div class="relative mb-8 flex flex-col items-center md:mb-0">
 		<Chip bgColor="bg-white">
 			<p
@@ -49,7 +53,7 @@
 			>
 				{data.title}
 			</p>
-			<div class="absolute right-16 top-36 -rotate-12 md:right-32 md:top-32">
+			<div class="absolute right-16 top-36 -rotate-12 sm:top-32 md:right-32">
 				<Card bgColor="bg-septenary">
 					<p>{data.jobTitle}</p>
 				</Card>
@@ -57,9 +61,19 @@
 		</Chip>
 	</div>
 
-	<div class="m-auto w-full lg:w-1/2">
+	<div class="w-full lg:w-1/2">
 		<Terminal bgColor="bg-black">
-			<pre class="whitespace-pre-wrap text-red-500">{displayedCommand}</pre>
+			<pre class="h-16 whitespace-pre-wrap text-red-500">{displayedCommand}</pre>
 		</Terminal>
+	</div>
+
+	<h2 class="text-center text-4xl text-black sm:text-6xl">Recent Blog Posts</h2>
+
+	<div class="flex w-full flex-col items-center gap-4 text-2xl lg:flex-row">
+		{#each data.mostRecentPosts as post, idx}
+			<a class="w-full lg:w-96" href="/blog/{post.id}">
+				<BlogPreviewCard bgColor={bgColors[idx]} {...post} />
+			</a>
+		{/each}
 	</div>
 </div>
