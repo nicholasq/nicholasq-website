@@ -1,4 +1,4 @@
-import { defaultDatabase } from "$lib/db.ts";
+import { defaultDatabase } from "$lib/server/db.ts";
 
 export const load = async ({ params }) => {
   const db = defaultDatabase();

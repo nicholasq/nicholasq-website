@@ -1,6 +1,7 @@
 import { type Client, createClient } from "@libsql/client";
+import { DB_URL } from "$env/static/private";
 
-const dbUrl = Deno.env.get("DB_URL")!;
+const dbUrl = DB_URL;
 
 export interface BlogPost {
   id: number;
