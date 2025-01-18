@@ -1,4 +1,4 @@
-import { defaultDatabase } from "$lib/server/db.ts";
+import { defaultDatabase } from "$lib/server/db";
 import {
   MAIN_PAGE_EXPERIENCE,
   MAIN_PAGE_JOB_TITLE,
@@ -16,3 +16,5 @@ export const load = async () => {
   const mostRecentPosts = await db.findMostRecent(3);
   return { title, welcomeMessage, experience, jobTitle, mostRecentPosts };
 };
+
+export const prerender = true;

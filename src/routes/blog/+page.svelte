@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { PageData } from "./$types";
   import BlogPreviewCard from "$lib/ui/components/BlogPreviewCard.svelte";
-  import { bgColors } from "$lib/util.ts";
+  import { bgColors } from "$lib/util";
 
   const { data }: { data: PageData } = $props();
 </script>
