@@ -3,7 +3,7 @@ import {
   MAIN_PAGE_EXPERIENCE,
   MAIN_PAGE_JOB_TITLE,
   MAIN_PAGE_TITLE,
-  MAIN_PAGE_WELCOME_MESSAGE,
+  MAIN_PAGE_WELCOME_MESSAGE
 } from "$env/static/private";
 
 const title = MAIN_PAGE_TITLE;

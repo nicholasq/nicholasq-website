@@ -12,13 +12,13 @@ export default {
         quaternary: "var(--color4)",
         quinary: "var(--color5)",
         senary: "var(--color6)",
-        septenary: "var(--color7)",
+        septenary: "var(--color7)"
       },
       fontFamily: {
-        "ezread": ["Space Grotesk"],
-      },
-    },
+        ezread: ["Space Grotesk"]
+      }
+    }
   },
 
-  plugins: [],
+  plugins: []
 } satisfies Config;

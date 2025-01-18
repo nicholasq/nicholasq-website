@@ -5,5 +5,5 @@ export const bgColors = [
   "bg-quaternary",
   "bg-quinary",
   "bg-senary",
-  "bg-septenary",
+  "bg-septenary"
 ];

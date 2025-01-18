@@ -28,7 +28,7 @@ export class Db implements Database {
   async findById(id: number): Promise<BlogPost> {
     const result = await this.client.execute({
       sql: "SELECT * FROM blog WHERE id = ?",
-      args: [id],
+      args: [id]
     });
 
     if (result.rows.length === 0) {
@@ -41,7 +41,7 @@ export class Db implements Database {
   async findMostRecent(count: number): Promise<BlogPost[]> {
     const result = await this.client.execute({
       sql: "SELECT * FROM blog ORDER BY id DESC LIMIT ?",
-      args: [count],
+      args: [count]
     });
 
     if (result.rows.length === 0) {
