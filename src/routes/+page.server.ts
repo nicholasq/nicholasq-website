@@ -16,5 +16,3 @@ export const load = async () => {
   const mostRecentPosts = await db.findMostRecent(3);
   return { title, welcomeMessage, experience, jobTitle, mostRecentPosts };
 };
-
-export const prerender = true;
