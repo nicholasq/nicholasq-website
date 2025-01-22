@@ -67,9 +67,27 @@
     </Terminal>
   </div>
 
+  <h2 class="text-center text-4xl text-black sm:text-6xl">Some of My Work</h2>
+
+  <div class="flex w-full flex-col items-center gap-4 text-2xl lg:w-3/4">
+    {#each data.projects as project, idx}
+      <Card bgColor={idx % 2 === 0 ? "bg-senary" : "bg-septenary"}>
+        <div class="flex h-full w-full flex-1 flex-col items-center">
+          <h3 class="text-base sm:text-3xl">
+            <a href={project.url}> {project.title}</a>
+            <img class="inline-block" src="/external-link.svg" alt="External link icon" />
+          </h3>
+          <p class="w-full text-left text-base sm:text-center sm:text-lg">
+            {project.content}
+          </p>
+        </div>
+      </Card>
+    {/each}
+  </div>
+
   <h2 class="text-center text-4xl text-black sm:text-6xl">Recent Blog Posts</h2>
 
-  <div class="flex w-full flex-col items-center gap-4 text-2xl lg:flex-row">
+  <div class="mb-16 flex w-full flex-col items-center gap-4 text-2xl lg:flex-row">
     {#each data.mostRecentPosts as post, idx}
       <a class="w-full lg:w-96" href="/blog/{post.id}">
         <BlogPreviewCard bgColor={bgColors[idx]} {...post} />
